@@ -32,12 +32,12 @@ export default {
     async withoutProxy() {
       this.responseText += 'Without Proxy\n';
       const a = await this.sendData('https://www.freeforexapi.com/api/live');
-      this.responseText += a + '\n------------\n';
+      this.responseText += JSON.stringify(a) + '\n------------\n';
     },
     async withProxy() {
       this.responseText += 'With Proxy\n';
       const a = await this.sendData('/api-proxy/api/live');
-      this.responseText += a + '\n------------\n';
+      this.responseText += JSON.stringify(a) + '\n------------\n';
     },
     sendData(url) {
       return fetch(url)
