@@ -1,0 +1,19 @@
+{
+  "name": "netlify-cors-proxy",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "d": "vite",
+    "build": "vite build",
+    "b": "vite build",
+    "preview": "vite preview --port 4173",
+    "p": "vite preview --port 4173"
+  },
+  "dependencies": {
+    "vue": "^3.2.37"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^2.3.3",
+    "vite": "^2.9.12"
+  }
+}
