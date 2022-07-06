@@ -40,7 +40,6 @@ export default {
       this.appentResponseText(await this.sendData('/api-proxy/api/live'));
     },
     appentResponseText(text) {
-      console.log(text instanceof Error);
       this.responseText +=
         (text instanceof Error ? text : JSON.stringify(text)) +
         '\n------------\n';
