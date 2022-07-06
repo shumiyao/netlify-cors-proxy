@@ -32,12 +32,12 @@ export default {
     async withoutProxy() {
       this.responseText += 'Without Proxy\n';
       this.appentResponseText(
-        await this.sendData('https://www.freeforexapi.com/api/live')
+        await this.sendData('https://www.freeforexapi.com/api/live?pairs=USDJPY')
       );
     },
     async withProxy() {
       this.responseText += 'With Proxy\n';
-      this.appentResponseText(await this.sendData('/api-proxy/api/live'));
+      this.appentResponseText(await this.sendData('/api-proxy/api/live?pairs=USDJPY'));
     },
     appentResponseText(text) {
       this.responseText +=
