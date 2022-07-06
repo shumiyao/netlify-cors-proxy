@@ -32,12 +32,23 @@ export default {
     async withoutProxy() {
       this.responseText += 'Without Proxy\n';
       this.appentResponseText(
-        await this.sendData('https://www.freeforexapi.com/api/live?pairs=USDJPY')
+        await this.sendData(
+          'https://www.freeforexapi.com/api/live?pairs=USDJPY'
+        )
       );
     },
     async withProxy() {
       this.responseText += 'With Proxy\n';
-      this.appentResponseText(await this.sendData('/api-proxy/api/live?pairs=USDJPY'));
+      if (process.env.NODE_ENV === 'development') {
+        this.appentResponseText(
+          'This test sample must be running on netlify or it does not work.'
+        );
+
+        return;
+      }
+      this.appentResponseText(
+        await this.sendData('/api-proxy/api/live?pairs=USDJPY')
+      );
     },
     appentResponseText(text) {
       this.responseText +=
