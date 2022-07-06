@@ -31,13 +31,19 @@ export default {
   methods: {
     async withoutProxy() {
       this.responseText += 'Without Proxy\n';
-      const a = await this.sendData('https://www.freeforexapi.com/api/live');
-      this.responseText += JSON.stringify(a) + '\n------------\n';
+      this.appentResponseText(
+        await this.sendData('https://www.freeforexapi.com/api/live')
+      );
     },
     async withProxy() {
       this.responseText += 'With Proxy\n';
-      const a = await this.sendData('/api-proxy/api/live');
-      this.responseText += JSON.stringify(a) + '\n------------\n';
+      this.appentResponseText(await this.sendData('/api-proxy/api/live'));
+    },
+    appentResponseText(text) {
+      console.log(text instanceof Error);
+      this.responseText +=
+        (text instanceof Error ? text : JSON.stringify(text)) +
+        '\n------------\n';
     },
     sendData(url) {
       return fetch(url)
